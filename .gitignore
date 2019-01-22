@@ -49,3 +49,11 @@ override.tf.json
 # !example_override.tf
 
 # End of https://www.gitignore.io/api/go,terraform
+
+
+
+
+# LibreOffice temp files
+*.odg#
+
+
