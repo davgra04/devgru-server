@@ -41,12 +41,15 @@ cd tf/devgru-server
 # generate key for accessing EC2 instance
 ssh-keygen -t rsa -C this-is-my-server-key -f ~/.ssh/devgruserver.key
 
+# get your external IP
+MY_IP=$(curl -s ifconfig.co)
+
 # deploy with terraform
 terraform init
-terraform apply -var "key_name=20190122-devgru-server" -var "private_key_path=20190122-devgru-server.key" -var "public_key_path=20190122-devgru-server.key.pub" -auto-approve
+terraform apply -var "key_name=~/.ssh/whatever" -var "private_key_path=~/.ssh/whatever.key" -var "public_key_path=~/.ssh/whatever.key.pub" -var "my_ip=${MY_IP}/32" -auto-approve
 
 # destroy
-terraform destroy -var "key_name=20190122-devgru-server" -var "private_key_path=20190122-devgru-server.key" -var "public_key_path=20190122-devgru-server.key.pub" -auto-approve
+terraform destroy -var "key_name=~/.ssh/whatever" -var "private_key_path=~/.ssh/whatever.key" -var "public_key_path=~/.ssh/whatever.key.pub" -var "my_ip=${MY_IP}/32" -auto-approve
 ```
 
 
@@ -55,5 +58,4 @@ terraform destroy -var "key_name=20190122-devgru-server" -var "private_key_path=
 
 ```
 # (optional) tf apply test websites (adds nginx config and deploys)
-
 ```

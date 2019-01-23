@@ -12,15 +12,6 @@ terraform {
   }
 }
 
-# data "terraform_remote_state" "network" {
-#   backend = "s3"
-#   config {
-#     bucket = "${var.remote_state_bucket}"
-#     key    = "${var.infra_remote_state_key}.tfstate"
-#     region = "${var.aws_region}"
-#   }
-# }
-
 # Create a VPC to launch our instances into
 resource "aws_vpc" "devgru-server-vpc" {
   cidr_block = "10.0.0.0/16"
@@ -62,7 +53,7 @@ resource "aws_security_group" "devgru-server-sg" {
     from_port   = 22
     to_port     = 22
     protocol    = "tcp"
-    cidr_blocks = ["73.136.21.62/32"]
+    cidr_blocks = ["${var.my_ip}"]
   }
 
   # HTTP access from my IP
@@ -70,7 +61,15 @@ resource "aws_security_group" "devgru-server-sg" {
     from_port   = 80
     to_port     = 80
     protocol    = "tcp"
-    cidr_blocks = ["73.136.21.62/32"]
+    cidr_blocks = ["${var.my_ip}"]
+  }
+
+  # HTTPS access from my IP
+  ingress {
+    from_port   = 443
+    to_port     = 443
+    protocol    = "tcp"
+    cidr_blocks = ["${var.my_ip}"]
   }
 
   # outbound internet access

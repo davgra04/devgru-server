@@ -15,6 +15,6 @@ output "subnet_id" {
 }
 
 
-output "devgru_server_eip_id" {
-    value = "${aws_eip.devgru-server-eip.id}"
+output "devgru_server_eip_public_ip" {
+    value = "${aws_eip.devgru-server-eip.public_ip}"
 }

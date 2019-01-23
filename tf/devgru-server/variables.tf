@@ -1,18 +1,3 @@
-# variable "remote_state_bucket" {
-#   description = "Name of the remote state bucket"
-#   default     = "devgru-tf-remote-state"
-# }
-
-# variable "remote_state_key" {
-#   description = "Name of the remote state key"
-#   default     = "devgru-server"
-# }
-
-# variable "infra_remote_state_key" {
-#   description = "Name of the remote state key"
-#   default     = "infra"
-# }
-
 variable "public_key_path" {}
 
 variable "private_key_path" {}
@@ -49,5 +34,4 @@ variable "aws_amis" {
 
 variable "my_ip" {
   description = "Used for setting ssh and http/https access for my machine"
-  default = "73.136.21.62"
 }
