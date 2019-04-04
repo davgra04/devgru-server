@@ -3,6 +3,8 @@ devgru-server
 
 A terraform project for deploying personal-use web applications behind an Nginx reverse proxy.
 
+# Overview
+
 ![Sketch of devgruserver](/docs/sketch.png)
 
 
@@ -50,7 +52,7 @@ This will create the EC2 instance and set up Nginx.
 cd tf/devgru-server
 
 # generate key for accessing EC2 instance
-ssh-keygen -t rsa -C this-is-my-server-key -f ~/.ssh/devgruserver.key
+ssh-keygen -t rsa -C this-is-my-server-key -f ~/.ssh/whatever.key
 
 # get your external IP
 MY_IP=$(curl -s ifconfig.co)
