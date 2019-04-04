@@ -3,7 +3,9 @@ devgru-server
 
 A terraform project for deploying personal-use web applications.
 
+
 # Getting Started
+
 
 ## Create Remote State Bucket
 
@@ -16,6 +18,7 @@ cd tf/state-bucket
 terraform init
 terraform apply -auto-approve
 ```
+
 
 ## Create Infrastructure
 
@@ -32,6 +35,7 @@ terraform apply -auto-approve
 terraform destroy -auto-approve
 
 ```
+
 
 ## Create devgru-server
 
@@ -59,3 +63,7 @@ terraform destroy -var "key_name=~/.ssh/whatever" -var "private_key_path=~/.ssh/
 ```
 # (optional) tf apply test websites (adds nginx config and deploys)
 ```
+
+
+
+

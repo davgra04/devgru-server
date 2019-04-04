@@ -43,7 +43,7 @@ resource "aws_instance" "web" {
     private_key = "${file(var.private_key_path)}"
   }
 
-  instance_type = "t2.small"
+  instance_type = "t3.nano"
 
   ami = "${lookup(var.aws_amis, var.aws_region)}"
 
